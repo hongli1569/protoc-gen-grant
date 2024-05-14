@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package options;
+
+import "google/protobuf/descriptor.proto";
+option go_package = "github.com/hongli1569/protoc-gen-grant/annotations;annotations";
+
+extend google.protobuf.MethodOptions {
+  Grant grant = 20240513;
+}
+
+message Grant {
+  // 操作名称
+  string action = 1;
+  // 函数名称
+  string fullName = 2;
+  // 描述
+  string desc = 3;
+}

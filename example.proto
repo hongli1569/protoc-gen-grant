@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package example;
+
+import "annotations/options.proto";
+
+option go_package = "github.com/hongli1569/protoc-gen-grant/tests;tests";
+
+service JobService {
+    rpc GetJobInfo(req) returns (res){
+        option (options.grant) = {
+            action: "get_job_info",
+            desc: "职位详情",
+        };
+    }
+
+    rpc QueryJob(req) returns (res){
+        option (options.grant) = {
+            action: "job.QueryList",
+            desc: "职位列表",
+        };
+    }
+  }
+
+
+message req{
+    string name = 1;
+}
+
+message res{
+    int32 id = 1;
+}
